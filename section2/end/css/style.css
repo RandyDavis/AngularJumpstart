@@ -9,3 +9,8 @@
 .navy {
   color: navy;
 }
+
+th {
+  background-color: lightgrey;
+  width: 120px;
+}

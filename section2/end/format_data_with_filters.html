@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>Iterating over Data with Filters</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-init="customers=[{joined: '2000-12-02', name: 'John', city: 'Chandler', orderTotal: '104.99986'}, {joined: '2012-05-23', name: 'Jenny', city: 'Austin', orderTotal: '75.02345'}, {joined: '1999-01-15', name: 'Joe', city: 'Dallas', orderTotal: '14.2786'}]">
+  <h2>Customers</h2>
+  Filter: <input type="text">
+  <br><br>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>Order Total</th>
+      <th>Joined</th>
+    </tr>
+    <tr ng-repeat="cust in customers">
+      <td>{{ cust.name | uppercase }}</td>
+      <td>{{ cust.city | lowercase}}</td>
+      <td>{{ cust.orderTotal | currency }}</td>
+      <td>{{ cust.joined | date:'longDate' }}</td> <!-- date: 'yyyy-MM-dd' or date: 'short' or 'medium' or 'longDate' work as well -->
+    </tr>
+  </table>
+
+
+  <script src="js/angular.js"></script>
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
+</html>
