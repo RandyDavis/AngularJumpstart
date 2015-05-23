@@ -2,12 +2,12 @@
 <html lang="en" ng-app>
 <head>
   <meta charset="UTF-8">
-  <title>Formatting Data with Filters</title>
+  <title>Sorting and Filtering Data with Filters</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body ng-init="customers=[{joined: '2000-12-02', name: 'John', city: 'Chandler', orderTotal: '104.99986'}, {joined: '2012-05-23', name: 'Jenny', city: 'Austin', orderTotal: '75.02345'}, {joined: '1999-01-15', name: 'Joe', city: 'Dallas', orderTotal: '14.2786'}]">
+<body ng-init="customers=[{joined: '2000-12-02', name: 'Chris', city: 'Chandler', orderTotal: '104.99986'}, {joined: '2012-05-23', name: 'Jenny', city: 'Austin', orderTotal: '75.02345'}, {joined: '1999-01-15', name: 'Randy', city: 'Dallas', orderTotal: '14.2786'}]">
   <h2>Customers</h2>
-  Filter: <input type="text">
+  Filter: <input type="text" ng-model="customerFilter.name"><!-- add "." followed by attribute name to only filter by that property  -->
   <br><br>
   <table>
     <tr>
@@ -16,7 +16,7 @@
       <th>Order Total</th>
       <th>Joined</th>
     </tr>
-    <tr ng-repeat="cust in customers">
+    <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:'name'"> <!-- LIMIT w/ "limitTo:2" -->
       <td>{{ cust.name | uppercase }}</td>
       <td>{{ cust.city | lowercase}}</td>
       <td>{{ cust.orderTotal | currency }}</td>
