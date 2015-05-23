@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>More on Directives</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<!-- 
+  ng-cloak
+  ng-switch
+  ng-class
+  ng-show
+ -->
+<body ng-init="data={name:'Randy', isVisible: true, loggedIn: true, status: 'navy' }">
+  <div ng-cloak>
+    <div ng-switch on="data.loggedIn">
+      <div ng-switch-when="true" ng-class="data.status">
+        Welcome {{ data.name }}
+      </div>
+      <div ng-switch-default ng-class="data.status">Login</div>
+    </div>
+    <br>
+    <div ng-show="data.isVisible">
+      Name: <input type="text" ng-model="data.name">
+      {{ data.name }}
+    </div>
+  </div>
+  
+  <script src="js/angular.js"></script>
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
+</html>
