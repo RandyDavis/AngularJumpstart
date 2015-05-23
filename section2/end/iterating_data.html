@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>Iterating Data</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-init="people=[{name:'John', city: 'Chandler'}, {name:'Billy', city: 'Phoenix'}, {name:'Randy', city: 'Austin'}]">
+  <div ng-cloak>
+    <div>
+      <h3>Iterating through data with ng-repeat</h3>
+      <ul>
+        <li ng-repeat="person in people">{{ person.name + " " + person.city }}</li>
+      </ul>
+
+      <table>
+        <tr>
+          <td>Name</td>
+          <td>City</td>
+        </tr>
+        <tr ng-repeat="person in people">
+          <td>{{ person.name }}</td>
+          <td>{{ person.city }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <script src="js/angular.js"></script>
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
+</html>
