@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <title>ng-controller Directive - This example Works ONLY with Angular v 1.2.x</title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body ng-controller="CustomersController as custCtrl" ng-cloak>
+    <h2>Customers</h2>
+    Filter: <input type="text" ng-model="customerFilter.name" />
+    <br /><br />
+    <table>
+        <tr>
+            <th ng-click="doSort('name')">Name</th>
+            <th ng-click="doSort('city')">City</th>
+            <th ng-click="doSort('orderTotal')">Order Total</th>
+            <th ng-click="doSort('joined')">Joined</th>
+        </tr>
+        <tr ng-repeat="cust in custCtrl.customers | filter:customerFilter | orderBy:sortBy:reverse">
+            <td>{{ cust.name }}</td>
+            <td>{{ cust.city }}</td>
+            <td>{{ cust.orderTotal | currency }}</td>
+            <td>{{ cust.joined | date }}</td>
+        </tr>
+    </table>
+    <br>
+    <span>Total customers: {{ custCtrl.customers.length }}</span>
+
+    <script src="js/angular1.2.5.js"></script>
+    <script src="app/controllers/customersController.js"></script>
+
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
+</html>
