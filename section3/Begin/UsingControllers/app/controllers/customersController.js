@@ -32,7 +32,7 @@
 // Option 3
 (function() {
 
-  var CustomersController = function($scope) {
+  var CustomersController = function($scope) { // foo and bar need to be defined in service/factory, but are removed so this example still works
     $scope.sortBy = 'name';
     $scope.reverse = false;
     
@@ -43,7 +43,10 @@
     };
   };
 
+  CustomersController.$inject = ['$scope'];  // Another way of doing it, "foo" and "bar" must be defined somewhere as a service/factory
+
   angular.module('customersApp')
+    // .controller('CustomersController', ['$scope', 'foo', 'bar', CustomersController]);  // 1 way of doing it but "foo" and "bar" must be defined somewhere as a service/factory
     .controller('CustomersController', CustomersController);
 
 }());
